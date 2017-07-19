@@ -8,6 +8,11 @@ h1 {
   text-align: center;
 }
 
+.middle {
+  background-color: #821f1f;
+}
+
+
 .diceNumber {
   font-size: 35px;
   text-align: center;
@@ -30,8 +35,21 @@ h1 {
   margin: auto;
 }
 
+.playerOneTotal, .playerTwoTotal {
+  font-size: 35px;
+  text-align: center;
+  padding-top: 22px;
+  background-color: lightblue;
+  width: 100px;
+  height: 100px;
+  color: white;
+  margin: auto;
+  margin-bottom: 18px;
+}
+
 .well {
   margin-top: 20px;
+  height: 300px;
 }
 
 h3 {
