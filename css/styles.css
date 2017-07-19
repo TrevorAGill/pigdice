@@ -12,8 +12,7 @@ h1 {
   background-color: #821f1f;
 }
 
-
-.diceNumber {
+.tempScoreDisplay, .diceNumber {
   font-size: 35px;
   text-align: center;
   padding-top: 22px;
@@ -22,17 +21,8 @@ h1 {
   height: 100px;
   color: white;
   margin: auto;
-}
-
-.tempScoreDisplay {
-  font-size: 35px;
-  text-align: center;
-  padding-top: 22px;
-  background-color: lightblue;
-  width: 100px;
-  height: 100px;
-  color: white;
-  margin: auto;
+  border-color: gray;
+  border-width: 2px;
 }
 
 .playerOneTotal, .playerTwoTotal {
@@ -50,6 +40,10 @@ h1 {
 .well {
   margin-top: 20px;
   height: 300px;
+}
+
+.win {
+  display: none;
 }
 
 h3 {

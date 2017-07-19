@@ -11,9 +11,24 @@
     <div class="container">
       <form id="dicegame">
         <div class="row">
+          <div class="col-md-12 playernames">
+            <div class="well namewell">
+              <div class="form-group">
+                <label for="PlayerOneName">Player One:</label>
+                <input id="PlayerOneName" type="text" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="PlayerTwoName">Player Two:</label>
+                <input id="PlayerTwoName" type="text" class="form-control">
+              </div>
+              <button type="button" id="NameSubmit" class="btn btn-success">Let's Play!</button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
           <div class="col-md-3">
             <div class="well">
-              <h1>Player 1</h1>
+              <h1 id="playerOneNameDisplay"></h1>
               <div class="playerOneTotal">
                 <p class="totalScoreDisplayP1">0</p>
               </div>
@@ -45,7 +60,7 @@
           </div>
           <div class="col-md-3">
             <div class="well">
-              <h1>Player 2</h1>
+              <h1 id="playerTwoNameDisplay"></h1>
               <div class="playerTwoTotal">
                 <p class="totalScoreDisplayP2">0</p>
               </div>
@@ -61,8 +76,10 @@
           </div>
         <div class="row">
           <div class="col-md-12">
-            <div class="well result">
-
+            <div class="well win">
+              <h4>
+                YOU WIN!
+              </h4>
             </div>
           </div>
         </div>

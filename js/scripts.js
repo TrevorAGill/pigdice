@@ -2,14 +2,14 @@
 $(document).ready(function(){
 
 //Back End
-  function Player (totalScore, temporaryScore) {
+  function Player (totalScore, temporaryScore, playerName) {
     this.totalScore = totalScore;
     this.temporaryScore = temporaryScore;
+    this.playerName = playerName;
   }
 
-  var Player1 = new Player(0,0);
-  var Player2 = new Player(0,0);
-
+  var player1 = new Player(0,0);
+  var player2 = new Player(0,0);
 
 
   Player.prototype.addToTemp = function(diceRoll) {
@@ -29,7 +29,16 @@ $(document).ready(function(){
 
 //Front End
 
+    $("#NameSubmit").click(function(event) {
+      player1.playerName = $("#PlayerOneName").val();
+      player2.playerName = $("#PlayerTwoName").val();
+      $("#playerOneNameDisplay").append(player1.playerName);
+      $("#playerTwoNameDisplay").append(player2.playerName);
+      $(".namewell").hide();
+    });
+
     $("#playerOneRoll").click(function(event) {
+      document.getElementById("playerTwoHold").disabled = false;
       $(".center").removeClass("middle");
       var diceRoll = (getRandomIntInclusive(1,6));
       $(".diceNumber").text(diceRoll);
@@ -48,6 +57,7 @@ $(document).ready(function(){
     });
 
     $("#playerTwoRoll").click(function(event) {
+      document.getElementById("playerOneHold").disabled = false;
       $(".center").removeClass("middle");
       var diceRoll = (getRandomIntInclusive(1,6));
       $(".diceNumber").text(diceRoll);
@@ -73,7 +83,7 @@ $(document).ready(function(){
       $(".diceNumber").text("");
       Player2.temporaryScore = 0;
         if (Player1.totalScore >= 100) {
-          alert("you win!")
+          $(".win").show();
         }
     });
 
@@ -86,7 +96,7 @@ $(document).ready(function(){
       $(".diceNumber").text("");
       Player1.temporaryScore = 0;
         if (Player2.totalScore >= 100) {
-        alert("you win!")
+          $(".win").show();
       }
     });
   // } else if(Player1.totalScore >= 100 || Player2.totalScore >= 100) {
