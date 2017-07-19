@@ -11,32 +11,50 @@
     <div class="container">
       <form id="dicegame">
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-3">
             <div class="well">
               <h1>Player 1</h1>
-              <button id="playerOne" type="button" class="btn btn-primary">Roll</button>
+              <div class="playerOneTotal">
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <button id="playerOneRoll" type="button" class="btn btn-primary">Roll</button>
+                </div>
+                <div class="col-md-6">
+                  <button id="playerOneHold" type="button" class="btn btn-warning">Pass Turn</button>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-6">
             <div class="well">
               <div class="row">
                 <div class="col-md-6">
-                <h3>Dice Result</h3>
+                <h3>Die Result</h3>
                   <div class="diceNumber">
                   </div>
                 </div>
                 <div class="col-md-6">
-                <h3>Score This Round</h3>
+                <h3>This Round</h3>
                   <div class="tempScoreDisplay">
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3">
             <div class="well">
               <h1>Player 2</h1>
-                <button id="playerTwo" type="button" class="btn btn-primary">Roll</button>
+              <div class="playerTwoTotal">
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <button id="playerTwoRoll" type="button" class="btn btn-primary">Roll</button>
+                </div>
+                <div class="col-md-6">
+                  <button id="playerTwoHold" type="button" class="btn btn-warning">Pass Turn</button>
+                </div>
+              </div>
             </div>
           </div>
         <div class="row">

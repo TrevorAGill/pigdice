@@ -1,6 +1,7 @@
 
 $(document).ready(function(){
 
+//Back End
   function Player (totalScore, temporaryScore) {
     this.totalScore = totalScore;
     this.temporaryScore = temporaryScore;
@@ -15,7 +16,10 @@ $(document).ready(function(){
     return this.temporaryScore += diceRoll;
   }
 
-  document.getElementById("playerOne").disabled = true;
+  Player.prototype.addToTotal = function(diceRoll) {
+    return this.totalScore += this.temporaryScore;
+  }
+
 
   function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
@@ -23,20 +27,30 @@ $(document).ready(function(){
     return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
   }
 
-  $("#playerOne").click(function(event) {
+//Front End
+  $("#playerOneRoll").click(function(event) {
     var diceRoll = (getRandomIntInclusive(1,6));
     $(".diceNumber").text(diceRoll);
     $(".tempScoreDisplay").text(Player1.addToTemp(diceRoll));
-
   });
 
-  $("#playerTwo").click(function(event) {
+  $("#playerTwoRoll").click(function(event) {
     var diceRoll = (getRandomIntInclusive(1,6));
     $(".diceNumber").text(diceRoll);
-    Player2.addToTemp();
+    $(".tempScoreDisplay").text(Player2.addToTemp(diceRoll));
   });
 
+  $("#playerOneHold").click(function(event) {
+    $(".playerOneTotal").text(Player1.addToTotal(this.totalScore));
+    document.getElementById("playerOneRoll").disabled = true;
+    document.getElementById("playerTwoRoll").disabled = false;
+    this.temporaryScore = 0;
+  });
 
-
-
+  $("#playerTwoHold").click(function(event) {
+    $(".playerOneTotal").text(Player1.addToTotal(this.totalScore));
+    document.getElementById("playerTwoRoll").disabled = true;
+    document.getElementById("playerOneRoll").disabled = false;
+    this.temporaryScore = 0;
+  });
 });
