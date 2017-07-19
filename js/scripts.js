@@ -1,57 +1,42 @@
-var globalBalance = 0;
+
 $(document).ready(function(){
 
+  function Player (totalScore, temporaryScore) {
+    this.totalScore = totalScore;
+    this.temporaryScore = temporaryScore;
+  }
 
-
-  $("form#account").submit(function(event) {
-    event.preventDefault();
-    var inputtedNames = $("input#names").val();
-    var inputtedInitial = parseInt($("input#initial").val());
-
-
-    var account = new Account(inputtedNames, inputtedInitial);
-
-    function Account(name, initial) {
-      this.names = names;
-      this.initial = initial;
-      return this.initial;
-    }
-
-    $(".result").text("Current Balance: $" +  account.initial);
-    globalBalance = globalBalance + account.initial;
-    });
+  var Player1 = new Player(0,0);
+  var Player2 = new Player(0,0);
 
 
 
-  $("form#transactions").submit(function(event) {
-    event.preventDefault();
+  Player.prototype.addToTemp = function(diceRoll) {
+    return this.temporaryScore += diceRoll;
+  }
 
-    var inputtedDeposit = parseInt($("input#deposit").val());
-    var inputtedWithdrawal = parseInt($("input#withdrawal").val());
-    var transactions = new Transactions(inputtedDeposit, inputtedWithdrawal);
-    debugger;
+  document.getElementById("playerOne").disabled = true;
 
-    function Transactions(deposit, withdrawal, initial, balance) {
-      this.deposit = deposit;
-      this.withdrawal = withdrawal;
-      this.initial = initial;
-      this.balance = balance;
-    }
+  function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+  }
 
-    function transactionType(deposit,withdrawal) {
-      if(inputtedDeposit>=0) {
-        globalBalance = globalBalance + inputtedDeposit;
-        $("input#deposit").val("");
-        $("input#withdrawal").val("");
-        return globalBalance;
-      } else if (inputtedWithdrawal>0) {
-        globalBalance = globalBalance - inputtedWithdrawal;
-        $("input#deposit").val("");
-        $("input#withdrawal").val("");
-        return globalBalance;
-      }
-    }
+  $("#playerOne").click(function(event) {
+    var diceRoll = (getRandomIntInclusive(1,6));
+    $(".diceNumber").text(diceRoll);
+    $(".tempScoreDisplay").text(Player1.addToTemp(diceRoll));
 
-    $(".result").text("Current Balance: $" + transactionType(deposit,withdrawal));
   });
+
+  $("#playerTwo").click(function(event) {
+    var diceRoll = (getRandomIntInclusive(1,6));
+    $(".diceNumber").text(diceRoll);
+    Player2.addToTemp();
+  });
+
+
+
+
 });

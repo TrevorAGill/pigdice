@@ -1,8 +1,35 @@
-.result {
-  margin-left:15px;
-  margin-right:15px;
+.btn {
+  display: block;
+  text-align: center;
+  margin: auto;
 }
 
-.top {
+h1 {
+  text-align: center;
+}
+
+.diceNumber {
+  font-size: 35px;
+  text-align: center;
+  padding-top: 22px;
+  background-color: lightblue;
+  width: 100px;
+  height: 100px;
+  color: white;
+  margin: auto;
+}
+
+.tempScoreDisplay {
+  font-size: 35px;
+  text-align: center;
+  padding-top: 22px;
+  background-color: lightblue;
+  width: 100px;
+  height: 100px;
+  color: white;
+  margin: auto;
+}
+
+.well {
   margin-top: 20px;
 }
