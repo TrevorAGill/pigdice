@@ -33,31 +33,26 @@ $(document).ready(function(){
   function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+    var diceRoll = Math.floor(Math.random() * (max - min + 1)) + min;
+    return insertImage(diceRoll);
   }
 
-//Front End
-
-
-//   $('.cube').click.animate(function() {
-//     // $('.cube').animate(function(){
-//     opacity: 0.25,
-//     left: "+=50",
-//     // height: "toggle"
-//     //
-//   // });
-// });
-
-//
-// $(window).click(function() {
-//   $( ".cube" ).animate({
-//     $('.cube').css('transform', 'rotateX(10deg)');
-//     // $('.cube').css('transform', 'rotateX(-40deg)' + 'rotateY(40deg)');
-//     // $('.cube').css('transform', 'rotateX(50deg)' + 'rotateY(-50deg)');
-//     // $('.cube').css('transform', 'rotateX(-10deg)' + 'rotateY(10deg)');
-//   }, 1500 );
-// });
-
+  function insertImage(diceRoll) {
+      if(diceRoll===1) {
+      $(".one").show();
+    } else if (diceRoll===2) {
+      $(".two").show();
+    } else if (diceRoll===3) {
+      $(".three").show();
+    } else if (diceRoll===4) {
+      $(".four").show();
+    } else if (diceRoll===5) {
+      $(".five").show();
+    } else if (diceRoll===6) {
+      $(".six").show();
+    }
+    return diceRoll;
+  }
 
 
     $("#NameSubmit").click(function(event) {
@@ -65,16 +60,25 @@ $(document).ready(function(){
       player2.playerName = $("#PlayerTwoName").val();
       $("#playerOneNameDisplay").append(player1.playerName);
       $("#playerTwoNameDisplay").append(player2.playerName);
-      $(".namewell").hide();
+      $(".namewell").slideUp("slow");
+      $(".gameBoard").show();
+      $(".gameBoard").fadeIn("slow");
+      // $(".gameBoard").slideDown("slow");
+      $(".cube").show();
     });
 
-    $("#playerOneRoll").click(function(event) {
-      $(".cube").removeClass("spin-vertical");
 
+    $("#playerOneRoll").click(function(event) {
+      $(".six").hide();
+      $(".five").hide();
+      $(".four").hide();
+      $(".three").hide();
+      $(".two").hide();
+      $(".one").hide();
+      $(".cube").removeClass("spin-vertical");
       setTimeout(function() {
       $(".cube").addClass("spin-vertical");
-    }, 0);
-
+      }, 0);
       document.getElementById("playerTwoHold").disabled = false;
       $(".center").removeClass("middle");
       var diceRoll = (getRandomIntInclusive(1,6));
@@ -86,7 +90,7 @@ $(document).ready(function(){
         this.temporaryScore = 0
         $(".tempScoreDisplay").text(0);
         $(".center").addClass("middle");
-        Player2.temporaryScore = 0;
+        player2.temporaryScore = 0;
       } else if (diceRoll > 1) {
         $(".tempScoreDisplay").text(player1.addToTemp(diceRoll));
         return this.temporaryScore;
@@ -94,8 +98,17 @@ $(document).ready(function(){
     });
 
     $("#playerTwoRoll").click(function(event) {
-      var diceTwo = new Dice(diceTwo);
-      diceTwo.addDiceRoll();// $(".cube").addClass("spin");
+      $(".six").hide();
+      $(".five").hide();
+      $(".four").hide();
+      $(".three").hide();
+      $(".two").hide();
+      $(".one").hide();
+      $(".cube").removeClass("spin-vertical");
+
+      setTimeout(function() {
+      $(".cube").addClass("spin-vertical");
+    }, 0);
       document.getElementById("playerOneHold").disabled = false;
       $(".center").removeClass("middle");
       var diceRoll = (getRandomIntInclusive(1,6));
@@ -122,7 +135,7 @@ $(document).ready(function(){
       $(".tempScoreDisplay").text("");
       $(".diceNumber").text("");
       player2.temporaryScore = 0;
-        if (Player1.totalScore >= 100) {
+        if (player1.totalScore >= 100) {
           $(".win").show();
         }
     });

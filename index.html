@@ -9,6 +9,11 @@
   </head>
   <body>
     <div class="container">
+      <div class="row first">
+        <!-- <div class="jumbotron">
+          <h1>It's Pig Time.</h1>
+        </div> -->
+      </div>
       <form id="dicegame">
         <div class="row">
           <div class="col-md-12 playernames">
@@ -21,11 +26,11 @@
                 <label for="PlayerTwoName">Player Two:</label>
                 <input id="PlayerTwoName" type="text" class="form-control">
               </div>
-              <button type="button" id="NameSubmit" class="btn btn-success">Let's Play!</button>
+              <button type="button" id="NameSubmit" class="btn">Let's Play!</button>
             </div>
           </div>
         </div>
-        <div class="row">
+        <div class="row gameBoard">
           <div class="col-md-3">
             <div class="well">
               <h1 id="playerOneNameDisplay"></h1>
@@ -34,10 +39,10 @@
               </div>
               <div class="row">
                 <div class="col-md-6">
-                  <button id="playerOneRoll" type="button" class="btn btn-primary">Roll</button>
+                  <button id="playerOneRoll" type="button" class="btn">Roll</button>
                 </div>
                 <div class="col-md-6">
-                  <button id="playerOneHold" type="button" class="btn btn-warning">Pass Turn</button>
+                  <button id="playerOneHold" type="button" class="btn">Pass Turn</button>
                 </div>
               </div>
             </div>
@@ -61,15 +66,15 @@
           <div class="col-md-3">
             <div class="well">
               <h1 id="playerTwoNameDisplay"></h1>
-              <div class="playerTwoTotal">
+              <div class="playerTwoTotal divStyle">
                 <p class="totalScoreDisplayP2">0</p>
               </div>
               <div class="row">
                 <div class="col-md-6">
-                  <button id="playerTwoRoll" type="button" class="btn btn-primary">Roll</button>
+                  <button id="playerTwoRoll" type="button" class="btn">Roll</button>
                 </div>
                 <div class="col-md-6">
-                  <button id="playerTwoHold" type="button" class="btn btn-warning">Pass Turn</button>
+                  <button id="playerTwoHold" type="button" class="btn">Pass Turn</button>
                 </div>
               </div>
             </div>
@@ -85,13 +90,28 @@
         </div>
       </div>
     </form>
+  <div class="allCube">
     <div class="cube">
-  <div class="top"></div>
-  <div class="right"></div>
-  <div class="bottom"></div>
-  <div class="left"></div>
-  <div class="back"></div>
-  <div class="front"></div>
+    <div class="top"></div>
+    <div class="right"></div>
+    <div class="bottom"></div>
+    <div class="left"></div>
+    <div class="back"></div>
+    <div class="front">
+      <div class="one">
+      </div>
+      <div class="two">
+      </div>
+      <div class="three">
+      </div>
+      <div class="four">
+      </div>
+      <div class="five">
+      </div>
+      <div class="six">
+      </div>
+    </div>
+    </div>
   </div>
   </body>
 </html>
